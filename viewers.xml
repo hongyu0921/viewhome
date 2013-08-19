@@ -104,41 +104,7 @@
 			<rule mode="replace" regex="&amp;amp;#55;" value="7"/>
  			<rule mode="replace" regex="&amp;amp;#8226;" value="*"/>
         </view>
-		<view id="messagerouting" template="digi/message/routing.xsl"/>
-
-
-
-		<!-- 公文管理 -->
-		<view id="documentlist" template="digi/document/list.xsl" encoding="utf-8"/>
-		<view id="documentsublist" template="digi/document/sublist.xsl" encoding="utf-8"/>
-	    <view id="documentcontent" template="digi/document/content.xsl">
 		
-			<rule mode="replace" regex="0 " value="0&#160;"/>
-			<rule mode="replace" regex="1 " value="1&#160;"/>
-			<rule mode="replace" regex="2 " value="2&#160;"/>
-			<rule mode="replace" regex="3 " value="3&#160;"/>
-			<rule mode="replace" regex="4 " value="4&#160;"/>
-			<rule mode="replace" regex="5 " value="5&#160;"/>
-			<rule mode="replace" regex="6 " value="6&#160;"/>
-			<rule mode="replace" regex="7 " value="7&#160;"/>
-			<rule mode="replace" regex="8 " value="8&#160;"/>
-			<rule mode="replace" regex="9 " value="9&#160;"/>
-
-			<rule mode="replace" regex="approver=" value="approver='"/>
-			<rule mode="replace" regex=" approveren=" value="' approveren="/>
-
-
-			<mode rule="replace" regex="&amp;amp;nbsp;" value=" "/>
-		    <rule mode="replace" regex="&amp;nbsp;" value=" "/>
-			<rule mode="replace" regex="&amp;lt;" value="&lt;"/>
-		    <rule mode="replace" regex="&amp;gt;" value="&gt;"/>	
-			<rule mode="replace" regex="&lt;\!\[CDATA\[" value=""/>
-			<rule mode="replace" regex="\]\]&gt;" value=""/>
-			<!-- 在转换的时候双引号 被保留了 替换掉 -->			
-		    <rule mode="replace" regex="&amp;quot;" value=""/>    
-		</view>
-
-
 		<!-- 企业新闻 -->
 		<view id="newslist" template="digi/news/list.xsl" encoding="utf-8"/>
 		<view id="newscontent" template="digi/news/content.xsl" encoding="GB2312">
@@ -163,7 +129,7 @@
         <view id="phonenumber" template="digi/phonenumber/index.xsl">
 			<rule mode="replace" regex="height:100" value=""/>
 		</view>
-        <view id="phonenumberrequest" template="digi/phonenumber/request.xsl">
+        <view id="phonenumberrequest" template="contact.jsp">
 			<rule mode="replace" regex="height:100" value=""/>
 			<rule mode="replace" regex="&amp;lt;" value="&lt;"/>
 			<rule mode="replace" regex="&amp;gt;" value="&gt;"/>
