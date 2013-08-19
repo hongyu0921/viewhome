@@ -26,20 +26,25 @@
 <body>
 	<div id="list" data-role="page" class="type-home">
 		<div data-role="content" align="center">
+			<div data-bind="visible: taskCount()==0">
+				<ul  data-role="listview" data-inset="true">							
+					<li> 无内容</li>
+				</ul>				
+			</div>
+			<div data-bind="visible: taskCount()>0" style="display:none">
+				<ul data-bind="foreach: tasklist" data-role="listview" data-inset="true">
 					
-		
-					<ul data-bind="foreach: tasklist" data-role="listview" data-inset="true">
-						<li>
-			
+					<li>		
 						<a  onclick="app.openDoc(this);return false"  data-bind="attr: {'name':href}" data-icon="arrow-r" data-iconpos="right"> <h3 data-bind="text: title"></h3>
 							<p>时间：<font color="#0080ff"><span data-bind="text: date"></span></font></p>
 						</a>
-						</li>
-					</ul>
+					</li>
+				</ul>
 			</div>
-			<div data-role="footer" data-position="fixed">
-        <h4>by Christoph Burgdorf</h4>
-    </div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+        	<h4>by Christoph Burgdorf</h4>
+   		</div>
 	</div>
 	
 	  
