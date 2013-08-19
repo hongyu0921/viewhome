@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene xmlns="http://www.horizonpower.com.cn/hpclient/scene-xml/" xmlns:builtin="http://www.horizonpower.com.cn/hpclient/scene-xml/built-in/">
+    <component name="root">
+        <componentType>
+			<component name="application" type="builtin:appController"/>
+			<component name="case" type="builtin:caseController">
+				<properties>
+					<property name="title">
+						<string>练习</string>
+					</property>
+					<property name="navButtonText">
+						<string>赋值</string>
+					</property>
+					<property name="navBarHidden">
+						<string>0</string>
+					</property>
+				</properties>
+			</component>
+			<component name="main" type="builtin:webView">
+				<frame x="22 y="22" width="320" height="480"/>
+				
+			</component>
+			
+			<component name="editButton" type="builtin:button">
+				<frame x="60" y="160" width="150" height="40"/>
+				<properties>
+					<property name="text">
+						<string>重置</string>
+					</property>
+				</properties>
+			</component>
+        </componentType>
+    </component>
+
+</scene>
