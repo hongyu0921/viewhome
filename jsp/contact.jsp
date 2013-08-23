@@ -18,42 +18,39 @@
 				String responseXml = q.getContent();
 				System.out.println(responseXml);
 				Document   doc = DocumentHelper.parseText(responseXml);
-				String todsNumber=doc.selectSingleNode("//viewentries/@toplevelentries").getStringValue();
-				List todosList=doc.selectNodes("//viewentry");
-				for(Iterator i=todosList.iterator();i.hasNext();){
-					Element todoInfo=(Element)i.next();
+				List contactList=doc.selectNodes("//table[@class='table1']//tr");
+				//第一个tr是标题，所以个数减一是真是数据
+				int contactNumber=contactList.size()-1;  
+				
+				for(int i=1;i<contactList.size();i++){
+					Element contactInfo=(Element)contactList.get(i);
 					JSONObject json=new JSONObject();
-					Node idate=(Node)todoInfo.selectNodes("./entrydata[1]").get(0);
-					Node title=todoInfo.selectSingleNode("./entrydata[2]");			//标题
+					//用户名
+					Node userName=(Node)contactInfo.selectSingleNode("./td[1]");
+					System.out.println("userName="+userName.asXML());
+					System.out.println("userName111="+userName.getText());
+					//部门名称
+					Node deptName=contactInfo.selectSingleNode("./td[3]");		
 					
-					//服务器名称
-					Node serverName=todoInfo.selectSingleNode("./entrydata[3]");
-					//数据库路径
-					Node dbpath=todoInfo.selectSingleNode("./entrydata[4]");	
-					//form 名称
-					Node formName=todoInfo.selectSingleNode("./entrydata[5]");	
-					/*
-						cdata q.getContent() 前面的<被转义为&lg;,反解义
-					*/
-					String idateString=DocumentHelper.parseText(StringEscapeUtils.unescapeXml(idate.asXML())).getRootElement().getText();
-					String titleString=DocumentHelper.parseText(StringEscapeUtils.unescapeXml(title.asXML())).getRootElement().getText();
-							
-					String serverNameString=DocumentHelper.parseText(StringEscapeUtils.unescapeXml(serverName.asXML())).getRootElement().getText();
-					String dbpathString=DocumentHelper.parseText(StringEscapeUtils.unescapeXml(dbpath.asXML())).getRootElement().getText();
-
-					String unid=todoInfo.attributeValue("unid");
-					System.out.println("dbpathString="+dbpathString);
-					String href="";
-					json.put("title",titleString);
-					json.put("date",idateString);
-					json.put("unid",unid);
-					
-					json.put("href",unid);
+					//移动电话
+					Node telNumber=contactInfo.selectSingleNode("./td[4]");
+					//办公电话
+					Node officeNumber=contactInfo.selectSingleNode("./td[5]");	
+					//邮箱
+					Node mail=contactInfo.selectSingleNode("./td[6]");	
+										
+					json.put("userName",userName.getStringValue());
+					json.put("deptName",deptName.getStringValue());
+					json.put("telNumber",telNumber.getStringValue());
+					json.put("dialNumber",telNumber.getStringValue());
+					json.put("officeNumber",officeNumber.getStringValue());
+					json.put("mail",mail.getStringValue());
+					json.put("mailto",mail.getStringValue());
 					taskArray.put(json);
 					
 				}
-				taskJson.put("taskCount", todsNumber);		
-				taskJson.put("tasklist",taskArray);
+				taskJson.put("contactNumber", String.valueOf(contactNumber));		
+				taskJson.put("contactlist",taskArray);
 			
 				out.clear();
 				out.println(taskJson);
