@@ -179,7 +179,7 @@ function loadContact(){
 	$.hori.loadPage($.hori.getconfig().serverBaseUrl+'viewhome/html/contact.html',$.hori.getconfig().serverBaseUrl+'viewhome/xml/searchContact.xml')
 }
 function createUser(){
-	var url = $.hori.getconfig().appServerHost+"view/oa?data-action=createuser";
+	var url = $.hori.getconfig().appServerHost+"view/oa/?data-action=createuser";
 	$.hori.invokeClientRequest({
 			"type":"get",
 			"url":url,
