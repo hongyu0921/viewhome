@@ -76,7 +76,7 @@
 								var data = "data-xml="+soap;
 								
 								
-								$.hori.invokeClientRequest({
+								$.hori.ajax({
 									type: "post", url: url, data:data,
 									success: function(response){
 											var result = response;

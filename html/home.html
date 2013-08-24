@@ -74,7 +74,7 @@ function inittodos(){
 	if (icount!=gcount){
 		
 		var url = $.hori.getconfig().appServerHost+"view/oa/todosnum/Produce/GeneralMessage.nsf/GetAllMsgInfoAgent?openagent&random="+Math.random();
-		$.hori.invokeClientRequest({
+		$.hori.ajax({
 				"type":"post",
 				"url":url,
 				"data":"data-xml=yes^~^app|8|vwTaskUnDoneForMobile|vwTaskUnDoneForMobile^~^msg|5|msgByDateDownUnRdView|msgByDateDownRdView^~^flowinfo|5|FlowUndoView|FlowDoneView",
@@ -180,7 +180,7 @@ function loadContact(){
 }
 function createUser(){
 	var url = $.hori.getconfig().appServerHost+"view/oa/?data-action=createuser";
-	$.hori.invokeClientRequest({
+	$.hori.ajax({
 			"type":"get",
 			"url":url,
 			"data":"",
