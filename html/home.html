@@ -14,6 +14,7 @@
 <script src="../lib/jquery/jquery.min.js"></script>
 <script src="../lib/jquery-cookie/jquery.cookie.js"></script>
 <script src="../lib/encrypt/encrypt.js"></script>
+<script src="../lib/json/json2.js"></script>
 <script src="../lib/hori/hori.js?tag=21369"></script>
 
 <script src="../lib/jquery-mobile/jquery.mobile.min.js"></script>
@@ -90,6 +91,9 @@ function inittodos(){
 					
 	
 					
+				},
+				"error":function(res){
+				
 				}
 			})
 	}
@@ -186,6 +190,9 @@ function createUser(){
 			"data":"",
 			"success":function(res){
 			
+				
+			},
+			"error":function(res){
 				
 			}
 		})
