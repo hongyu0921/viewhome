@@ -2,7 +2,7 @@
 <viewers>
 	<viewer id="oa" type="remote" source="http://mobile2.sugon.com" encoding="gb2312">
 		<!-- 登陆验证 -->
-		<view id="loginvalidate" template="loginValidate.jsp" encoding="gb18030"/>
+		<view id="loginvalidate" template="login/loginValidate.jsp" encoding="gb18030"/>
 		<!-- 手机待办列表 -->
 		<view id="todosmobile" template="taskList.jsp" encoding="utf-8">
 		</view>
@@ -51,11 +51,7 @@
 			<rule mode="replace" regex="soap:" value=""/>
 			<rule mode="replace" regex="ns1:" value=""/>
 		</view>
-		<view id="request_price" template="digi/mobile/request_price.xsl" encoding="utf-8">
-			<rule mode="replace" regex="soap:" value=""/>
-			<rule mode="replace" regex="ns1:" value=""/>
-		</view>
-        <view id="routing" template="digi/routing.xsl"/>
+	
 
 		<!-- 已办事宜 -->
 		<view id="dones" template="digi/doneslist.xsl" encoding="utf-8"/>
@@ -106,7 +102,7 @@
         </view>
 		
 		<!-- 企业新闻 -->
-		<view id="newslist" template="digi/news/list.xsl" encoding="utf-8"/>
+		<view id="newslist" template="news/newsList.jsp" encoding="utf-8"/>
 		<view id="newscontent" template="digi/news/content.xsl" encoding="GB2312">
 			<rule mode="replace" regex="&amp;lt;" value="&lt;"/>
 			<rule mode="replace" regex="&amp;gt;" value="&gt;"/>

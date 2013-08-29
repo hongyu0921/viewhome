@@ -4,7 +4,7 @@
 	<xsl:template match="/">
 		<html lang="zh_cn">
 			<head>							
-				<link rel="stylesheet"  href="/cssjs/jquery.mobile-1.2.0.css" />
+				
 				
 				<style>
 					pre {
@@ -19,29 +19,13 @@
 						white-space:normal;;
 					}
 				</style>
-				<script src="/cssjs/jquery.js"></script>
-				<script src="/cssjs/jquery.mobile-1.2.0.js"></script>
-
-				<script src="/view/js/hori.js"></script>
-
-				<script>
-					$(document).ready(function(){
-						var hori=$.hori;
-						/*设置标题*/
-						hori.setHeaderTitle("内容");
-
-					});
-				</script>
+				
+				
 			</head>
 			<body>
 				<div id="notice" data-role="page">
 					<div data-role="content" align="center">
-						<script type="text/javascript">
-							function viewfile(url){
-								//alert(url);
-								$.hori.loadPage(url, "/view/Resources/AttachView.xml");
-							}
-						</script>
+						
 						<div align="center" style="width:100%"><strong><xsl:value-of select="//title/text()"/></strong></div>
 						<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
 							<ul data-role="listview" data-inset="true">
@@ -76,7 +60,7 @@
 	
 	<xsl:template match="a" mode="file">
 		<xsl:if test="@href='#'">
-			<a href="javascript:void(0)" onclick="viewfile('/view/oa/file/{substring(substring-before(substring-after(@onclick,'('),')'), 2)}');"  data-role="button"><xsl:value-of select="."/></a>
+			<a href="javascript:void(0)" onclick="viewfile($.hori.getconfig()appServerHost+'view/oa/file/{substring(substring-before(substring-after(@onclick,'('),')'), 2)}');"  data-role="button"><xsl:value-of select="."/></a>
 		</xsl:if>
 	</xsl:template>
 
