@@ -2,7 +2,7 @@
 <viewers>
 	<viewer id="oa" type="remote" source="http://mobile2.sugon.com" encoding="gb2312">
 		<!-- 登陆验证 -->
-		<view id="loginvalidate" template="content.jsp" encoding="gb18030"/>
+		<view id="loginvalidate" template="loginValidate.jsp" encoding="gb18030"/>
 		<!-- 手机待办列表 -->
 		<view id="todosmobile" template="taskList.jsp" encoding="utf-8">
 		</view>
