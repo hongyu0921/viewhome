@@ -3,14 +3,14 @@
     <%@ page language="java" import="cc.movein.mda.system.control.Query"%>
 <%@ page language="java" import="org.json.*"%>
 
-<%@ page language="java" import="org.dom4j.Document"%>;
-<%@ page language="java" import="org.dom4j.DocumentException"%>;
-<%@ page language="java" import="org.dom4j.Element"%>;
-<%@ page language="java" import="org.dom4j.Node"%>;
-<%@ page language="java" import="org.dom4j.DocumentHelper"%>;
-<%@ page language="java" import="java.util.List"%>;
-<%@ page language="java" import="java.util.Iterator"%>;
-<%@ page language="java" import="org.apache.commons.lang.StringEscapeUtils"%>;
+<%@ page language="java" import="org.dom4j.Document"%>
+<%@ page language="java" import="org.dom4j.DocumentException"%>
+<%@ page language="java" import="org.dom4j.Element"%>
+<%@ page language="java" import="org.dom4j.Node"%>
+<%@ page language="java" import="org.dom4j.DocumentHelper"%>
+<%@ page language="java" import="java.util.List"%>
+<%@ page language="java" import="java.util.Iterator"%>
+<%@ page language="java" import="org.apache.commons.lang.StringEscapeUtils"%>
 				<%
 				JSONArray taskArray=new JSONArray();
 				JSONObject taskJson=new JSONObject();	
@@ -53,7 +53,7 @@
 				taskJson.put("contactlist",taskArray);
 			
 				out.clear();
-				out.println(taskJson);
+				out.print(taskJson);
 				System.out.println(taskJson);
 				
 				%>

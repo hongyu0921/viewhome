@@ -53,10 +53,8 @@
 		</view>
 	
 
-		<!-- 已办事宜 -->
-		<view id="dones" template="digi/doneslist.xsl" encoding="utf-8"/>
-
-        <view id="forms" template="digi/forms/routing.xsl"/>
+		
+      
 
 		<!-- 个人消息 -->
 		<!-- 未读 -->
