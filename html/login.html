@@ -136,7 +136,7 @@
 								
 									//本地存储itcode 和oaServerName
 									localStorage.setItem("oaServerName",$.hori.getconfig().oaServerName)
-									localStorage.setItem("itcode",encrypt($.hori.getconfig().encryptKey,username));
+									localStorage.setItem("itcode",username);
 									var targetURL= $.hori.getconfig().serverBaseUrl+"viewhome/html/home.html"
 									targetURL=encodeURI(targetURL);
 									var componentURL = "viewhome/xml/digihome.xml";
