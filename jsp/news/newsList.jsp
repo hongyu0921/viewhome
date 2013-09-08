@@ -20,7 +20,19 @@
 				String responseXml = q.getContent();
 				System.out.println(responseXml);
 				Document   doc = DocumentHelper.parseText(responseXml);
-				int todsNumber=doc.selectNodes("//viewentries/viewentry").size()-1;
+				
+				//判断如果是超时或者没有权限，直接返回需要登录json
+
+				int todsNumber = 0;
+				boolean needLogin = false;
+				Node loginNode=doc.selectSingleNode("//form/@action");
+				String  statuscode=doc.selectSingleNode("//statuscode").getStringValue();
+				if ((loginNode!=null && loginNode.getStringValue().contains("names.nsf")) || statuscode.equals("401")) {
+					needLogin=true;
+				} else {
+					
+				
+				todsNumber=doc.selectNodes("//viewentries/viewentry").size()-1;
 				List newlist=doc.selectNodes("//viewentry");
 				
 				for(int i=1; i<newlist.size();i++){
@@ -47,8 +59,10 @@
 					taskArray.put(json);
 					
 				}
+				}
 				taskJson.put("newsCount", todsNumber);		
 				taskJson.put("newslist",taskArray);
+				taskJson.put("needLogin", needLogin);
 			
 				out.clear();
 

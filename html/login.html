@@ -137,11 +137,27 @@
 									//本地存储itcode 和oaServerName
 									localStorage.setItem("oaServerName",$.hori.getconfig().oaServerName)
 									localStorage.setItem("itcode",username);
-									var targetURL= $.hori.getconfig().serverBaseUrl+"viewhome/html/home.html"
-									targetURL=encodeURI(targetURL);
-									var componentURL = "viewhome/xml/digihome.xml";
 									saveUserInfoToLocal(username,password);
-									$.hori.loadPage(targetURL, componentURL);
+									
+									var targetURL= $.hori.getconfig().serverBaseUrl+"viewhome/html/home.html";	
+									var componentURL="";
+									targetURL=encodeURI(targetURL);
+									
+									if(localStorage.getItem("loginRedirectUrl")!=null){
+										targetURL=localStorage.getItem("loginRedirectUrl");
+										localStorage.removeItem("loginRedirectUrl");
+										
+									}else{
+										componentURL = "viewhome/xml/digihome.xml";
+									}
+									if(localStorage.getItem("loginRedirectXmlUrl")!=null){										
+										componentURL=localStorage.getItem("loginRedirectXmlUrl");
+										localStorage.removeItem("loginRedirectXmlUrl");
+									}						
+										
+									$.hori.loadPage(targetURL, componentURL);			
+									
+									
 
 								}else{
 									$.hori.hideLoading();

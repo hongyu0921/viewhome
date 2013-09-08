@@ -18,7 +18,17 @@
 				String responseXml = q.getContent();
 				System.out.println(responseXml);
 				Document   doc = DocumentHelper.parseText(responseXml);
-				String todsNumber=doc.selectSingleNode("//viewentries/@toplevelentries").getStringValue();
+				
+				String todsNumber = "0";
+				boolean needLogin = false;
+				Node loginNode=doc.selectSingleNode("//form/@action");
+				String  statuscode=doc.selectSingleNode("//statuscode").getStringValue();
+				if ((loginNode!=null && loginNode.getStringValue().contains("names.nsf")) || statuscode.equals("401")) {
+					needLogin=true;
+				} else {
+				
+				
+				 todsNumber=doc.selectSingleNode("//viewentries/@toplevelentries").getStringValue();
 				List todosList=doc.selectNodes("//viewentry");
 				for(Iterator i=todosList.iterator();i.hasNext();){
 					Element todoInfo=(Element)i.next();
@@ -52,8 +62,10 @@
 					taskArray.put(json);
 					
 				}
+				}
 				taskJson.put("taskCount", todsNumber);		
 				taskJson.put("tasklist",taskArray);
+				taskJson.put("needLogin", needLogin);
 			
 				out.clear();
 
