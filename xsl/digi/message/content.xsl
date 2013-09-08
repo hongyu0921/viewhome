@@ -22,7 +22,7 @@
 
 					});		
 					function viewfile(url){
-						$.hori.loadPage(url, "/view/Resources/AttachView.xml");
+						$.hori.loadPage(url,  $.hori.getconfig().serverBaseUrl+"view/xml/AttachView.xml");
 					}
 				</script>
 				
