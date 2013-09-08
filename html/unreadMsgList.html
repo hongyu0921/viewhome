@@ -27,9 +27,14 @@
 <body>
 	<div id="list" data-role="page" class="type-home">
 		<div data-role="content" align="center">
-			<div data-bind="visible: taskCount()==0">
+			<div data-bind="visible: taskCount()==0" style="display:none">
 				<ul  data-role="listview" data-inset="true">							
 					<li> 无内容</li>
+				</ul>				
+			</div>
+			<div  id="divDataLoading">
+				<ul  data-role="listview" data-inset="true">							
+					<li>数据加载中……</li>
 				</ul>				
 			</div>
 			<div data-bind="visible: taskCount()>0" style="display:none">
