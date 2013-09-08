@@ -7,8 +7,9 @@
 		
 
 		<meta name="format-detection" content="telephone=no" />
-		<script src="/view/jqueryMobile/jquery.js"></script>
-		<script src="/view/js/hori.js?tag=201211136"></script>
+		<script src="/view/lib/jquery/jquery.min.js"></script>
+		<script src="/view/config/web/config.js"></script>
+		<script src="/view/lib/hori/hori.js?tag=21369"></script>
 		
 	</head>
 	<body style="margin:0px;padding:0px;">

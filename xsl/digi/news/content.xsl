@@ -60,7 +60,7 @@
 	
 	<xsl:template match="a" mode="file">
 		<xsl:if test="@href='#'">
-			<a href="javascript:void(0)" onclick="viewfile($.hori.getconfig()appServerHost+'view/oa/file/{substring(substring-before(substring-after(@onclick,'('),')'), 2)}');"  data-role="button"><xsl:value-of select="."/></a>
+			<a href="javascript:void(0)" onclick="viewfile($.hori.getconfig().appServerHost+'view/oa/file/{substring(substring-before(substring-after(@onclick,'('),')'), 2)}');"  data-role="button"><xsl:value-of select="."/></a>
 		</xsl:if>
 	</xsl:template>
 
