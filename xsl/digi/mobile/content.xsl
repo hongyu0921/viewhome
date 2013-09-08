@@ -15,7 +15,7 @@
 					$(document).ready(function(){
 						var hori=$.hori;
 						/*设置标题*/
-						hori.setHeaderTitle("单据");
+						//hori.setHeaderTitle("单据");
 					});
 				</script>
 	
