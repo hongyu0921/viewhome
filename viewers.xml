@@ -9,18 +9,10 @@
 		<view id="todosmobilesub" template="digi/todosmobilesublist.xsl"
 			encoding="utf-8">
 		</view>
-		
-		
-
-
 		<view id="request" template="digi/mobile/request.xsl" encoding="utf-8">
 			<rule mode="replace" regex="soap:" value="" />
 			<rule mode="replace" regex="ns1:" value="" />
 		</view>
-
-
-
-
 		
 		<!-- 已读 -->
 		<view id="messagereadlist" template="digi/message/readlist.xsl"

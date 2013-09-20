@@ -136,11 +136,11 @@ var icount=0;
 			/*隐藏后退按钮*/
 			hori.hideBackBtn();
 			/*注册注销事件*/
-			cherry.bridge.registerEvent("case", "navButtonTouchUp", function() {
+			hori.registerEvent("case", "navButtonTouchUp", function() {
 				hori.backPage(1);
 			});
 			//刷新气泡显示代办条数
-			cherry.bridge.registerEvent("case", "casePresented", function() {
+			hori.registerEvent("case", "casePresented", function() {
 				//alert("niubility");
 				// 调用代办条数
 				inittodos();
