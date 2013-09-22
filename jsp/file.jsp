@@ -18,41 +18,38 @@
 				Query q = Query.getInstance(request);
 				
 				String path = q.getContent();
-				Document doc = DocumentHelper.parseText(path);
+				System.out.print(path);
+				
 				path = path.replace("\\", "/");
 				String type = q.getContentType();
 				boolean ispage = false;
-				boolean needLogin = false;
+			
 				int total=0;
-				Node loginNode=doc.selectSingleNode("//form/@action");
-				String  statuscode=doc.selectSingleNode("//statuscode").getStringValue();
-				if ((loginNode!=null && loginNode.getStringValue().contains("names.nsf")) || statuscode.equals("401")) {
-					needLogin=true;
-				} else {
-					if(type.indexOf("image")!=-1){
-						path="/view"+path;
+		
+				if(type.indexOf("image")!=-1){
+					path="/view"+path;
+				
+				}else if(type.indexOf(".png")!=-1 || type.indexOf(".jpg")!=-1){
+					path="/view"+path;					
+				}else if(type.indexOf("text/")!=-1){					
 					
-					}else if(type.indexOf(".png")!=-1 || type.indexOf(".jpg")!=-1){
-						path="/view"+path;					
-					}else if(type.indexOf("text/")!=-1){					
-						
-							if(path.indexOf("<data-params>")==-1){
-								
-							}else{
-								path=path.substring(0, path.indexOf("<data-params>"));
-							}
+						if(path.indexOf("<data-params>")==-1){
 							
-					}else if(type.indexOf("application/vnd")!=-1 || type.indexOf("application/pdf")!=-1 || type.indexOf("application/msword")!=-1 || type.indexOf("application/octet-stream")!=-1 || type.indexOf("application/vnd.ms-powerpoint")!=-1){
-						ispage = true;
-						path = q.getRequest().getRequestURI() + "?data-page=1";
-					}
+						}else{
+							path=path.substring(0, path.indexOf("<data-params>"));
+						}
+						
+				}else if(type.indexOf("application/vnd")!=-1 || type.indexOf("application/pdf")!=-1 || type.indexOf("application/msword")!=-1 || type.indexOf("application/octet-stream")!=-1 || type.indexOf("application/vnd.ms-powerpoint")!=-1){
+					ispage = true;
+					path = q.getRequest().getRequestURI() + "?data-page=1";
+				}
 				
 						
-					total=q.getPageSize();
-				}
+				total=q.getPageSize();
+				
 				json.put("total",total);
 				json.put("path",path);
-				json.put("needLogin",needLogin);
+		
 				out.clear();
 				out.println(json);
 			%>
