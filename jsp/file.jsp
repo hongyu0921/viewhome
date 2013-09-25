@@ -19,7 +19,8 @@
 				
 				String path = q.getContent();
 				System.out.print(path);
-				
+				String attacheType="path";
+				String content="";
 				path = path.replace("\\", "/");
 				String type = q.getContentType();
 				boolean ispage = false;
@@ -36,7 +37,15 @@
 						if(path.indexOf("<data-params>")==-1){
 							
 						}else{
-							path=path.substring(0, path.indexOf("<data-params>"));
+							if(path.indexOf("<body>")!=-1){
+								path=path.substring(path.indexOf("<body>")+6,path.indexOf("<data-params>"));
+							}else{
+								path=path.substring(0, path.indexOf("<data-params>"));
+							}
+							
+							
+							content=path;
+							attacheType="content";
 						}
 						
 				}else if(type.indexOf("application/vnd")!=-1 || type.indexOf("application/pdf")!=-1 || type.indexOf("application/msword")!=-1 || type.indexOf("application/octet-stream")!=-1 || type.indexOf("application/vnd.ms-powerpoint")!=-1){
@@ -49,7 +58,8 @@
 				
 				json.put("total",total);
 				json.put("path",path);
-		
+				json.put("type",attacheType);
+				json.put("content",content);
 				out.clear();
 				out.println(json);
 			%>
