@@ -10,8 +10,7 @@
 <%@ page language="java" import="org.dom4j.DocumentHelper"%>;
 <%@ page language="java" import="java.util.List"%>;
 <%@ page language="java" import="java.util.Iterator"%>;
-<%@ page language="java"
-	import="org.apache.commons.lang.StringEscapeUtils"%>;
+<%@ page language="java" import="org.apache.commons.lang.StringEscapeUtils"%>;
 
 <%
 				JSONObject json = new JSONObject();
@@ -53,7 +52,7 @@
 					path = q.getRequest().getRequestURI() + "?data-page=1";
 				}
 				
-						
+				path=path.replaceAll("^\\S*view","view");  		
 				total=q.getPageSize();
 				
 				json.put("total",total);
