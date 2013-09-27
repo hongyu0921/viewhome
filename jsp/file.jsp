@@ -28,10 +28,10 @@
 				int total=0;
 		
 				if(type.indexOf("image")!=-1){
-					path="/view"+path;
+					path="view"+path;
 				
 				}else if(type.indexOf(".png")!=-1 || type.indexOf(".jpg")!=-1){
-					path="/view"+path;					
+					path="view"+path;					
 				}else if(type.indexOf("text/")!=-1){					
 					
 						if(path.indexOf("<data-params>")==-1){
