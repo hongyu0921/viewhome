@@ -17,6 +17,16 @@
 						/*设置标题*/
 						//hori.setHeaderTitle("单据");
 					});
+					function makejq(){						
+						var jqElement = document.getElementById("jq");
+						var url = $.hori.getconfig().appServerHost+"view/oamobile/operationjq/Produce/DigiFlowMobile.nsf/frmselectpsn?OpenForm&amp;login&amp;selectMode=radio&amp;FieldName=TFTempAuthors&amp;FieldNameCN=TFTempAuthorsCN&amp;FieldNameEN=TFTempAuthorsEN&amp;GroupFlag=no&amp;SelectOrgID=&amp;OptFieldName=&amp;callback=SubmitFlowDoc_JQ";
+						//alert(url);
+						var contentHtml=$("#notice").html();
+						localStorage.setItem("oajqDataSource",url);
+						//jqElement.setAttribute("href", "../html/jq.html");
+						localStorage.setItem("oaAppContentHtml",contentHtml);
+						$.hori.loadPage($.hori.getconfig().appServerHost+"view/html/jq.html");
+					}
 				</script>
 	
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -150,7 +160,7 @@
 								<ul data-role="listview" data-inset="true" data-theme="c">
 									<li data-role="list-divider"></li>
 									<xsl:if test="//td[@class='DB_SET_TD' and not(contains(@style, 'none'))]/a[contains(@onclick, 'append')]">
-										<li><a href="/view/oa/operationjq/Produce/DigiFlowMobile.nsf/frmselectpsn?OpenForm&amp;login&amp;selectMode=radio&amp;FieldName=TFTempAuthors&amp;FieldNameCN=TFTempAuthorsCN&amp;FieldNameEN=TFTempAuthorsEN&amp;GroupFlag=no&amp;SelectOrgID=&amp;OptFieldName=&amp;callback=SubmitFlowDoc_JQ" data-rel="page">加 签</a></li>
+										<li><a href=""  onclick="makejq()" data-rel="page">加 签</a></li>
 									</xsl:if>
 									<li data-role="list-divider"></li>
 								</ul>

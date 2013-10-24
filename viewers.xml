@@ -135,6 +135,25 @@
 			<rule mode="replace" regex="&amp;amp;#55;" value="7" />
 			<rule mode="replace" regex="&amp;amp;#8226;" value="*" />
 		</view>
+		<!-- 高级流程操作 -->
+		<view id="operationjq" template="oa/flow/operationjq.xsl">
+		</view>
+		<view id="operationsearch" template="/oa/flow/searchresult.xsl" encoding="utf-8">
+			<rule mode="replace" regex="\{id:" value="&lt;id id:"/>
+			<rule mode="replace" regex="\}" value="&gt;&lt;/id&gt;"/>
+			<rule mode="replace" regex=":&quot;" value="='"/>
+			<rule mode="replace" regex="&quot;," value="' "/>
+			<rule mode="replace" regex=":" value="_"/>
+		</view>
+        <view id="operationorg" template="oa/flow/address/list.xsl" encoding="utf-8"/>
+        <view id="operationsuborg" template="oa/flow/address/sublist.xsl" encoding="utf-8"/>
+        <view id="operationperson" template="oa/flow/address/content.xsl" encoding="utf-8">
+			<rule mode="replace" regex="\{id:" value="&lt;id id:"/>
+			<rule mode="replace" regex="\}" value="&gt;&lt;/id&gt;"/>
+			<rule mode="replace" regex=":&quot;" value="='"/>
+			<rule mode="replace" regex="&quot;," value="' "/>
+			<rule mode="replace" regex=":" value="_"/>
+		</view>
 	</viewer>
 	<viewer id="oamsg" type="remote" source="http://mobile2.sugon.com"	encoding="gb2312"></viewer>
 </viewers>
