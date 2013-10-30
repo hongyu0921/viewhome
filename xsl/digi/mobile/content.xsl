@@ -25,7 +25,7 @@
 						localStorage.setItem("oajqDataSource",url);
 						//jqElement.setAttribute("href", "../html/jq.html");
 						localStorage.setItem("oaAppContentHtml",contentHtml);
-						$.hori.loadPage($.hori.getconfig().appServerHost+"view/html/jq.html");
+						$.hori.loadPage($.hori.getconfig().serverBaseUrl+"view/html/jq.html");
 					}
 				</script>
 	
