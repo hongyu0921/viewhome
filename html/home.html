@@ -42,9 +42,9 @@ function openmail(){
 
 
 function inittodos(){
-	var icount=0;
 	if (icount!=gcount){
 		
+		$.hori.showLoading();
 		var url = $.hori.getconfig().appServerHost+"view/oamobile/todosnum/Produce/GeneralMessage.nsf/GetAllMsgInfoAgent?openagent&random="+Math.random();
 		$.hori.ajax({
 				"type":"post",
@@ -55,6 +55,7 @@ function inittodos(){
 					var json = JSON.parse(res);
 					if(json.exception!=""){
 						alert(json.exception);
+						$.hori.hideLoading();
 					}else{
 						$("#spanTodo").html(json.number);
 						icount= gcount;
@@ -65,6 +66,7 @@ function inittodos(){
 				},
 				"error":function(res){
 				
+					$.hori.hideLoading();
 				}
 			})
 	}
@@ -135,9 +137,9 @@ var icount=0;
 	});
 
 	function loadTaskList() {
+		$.hori.showLoading();
 		createUser();
 		gcount = gcount + 1;
-		$.hori.showLoading();
 		var targetUrl = $.hori.getconfig().serverBaseUrl
 				+ "viewhome/html/task.html"
 
@@ -146,6 +148,7 @@ var icount=0;
 	}
 	function loadUnreadMsgList() {
 		$.hori.showLoading();
+		gcount=gcount+1;
 		var targetUrl = $.hori.getconfig().serverBaseUrl
 				+ "viewhome/html/unreadMsgList.html"
 
