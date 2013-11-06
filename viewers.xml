@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <viewers>
-	<viewer id="oa" type="remote" source="http://mobile2.sugon.com" 	encoding="gb2312">
+	<viewer id="oa" type="remote" source="http://demo.digiflow.cn" 	encoding="gb2312">
 		<!-- 登陆验证 -->
 		<view id="loginvalidate" template="login/loginValidate.jsp"	encoding="gb18030" />
 		
@@ -45,8 +45,8 @@
 				value="width=&quot;300px&quot;" />
 			<rule mode="remove" regex="height=&quot;179&quot;" />
 			<rule mode="remove" regex="height=&amp;quot;179&amp;quot;" />
-			<rule mode="replace" regex="http://oadev.dawning.com.cn/" value="/view/oa/newsfile/" />
 		</view>
+		<view id="image" />
 		<!-- 电话查询 -->
 		<view id="phonenumber" template="digi/phonenumber/index.xsl">
 			<rule mode="replace" regex="height:100" value="" />
@@ -63,7 +63,7 @@
 		<view id="newsfile" template="" />
 
 	</viewer>
-	<viewer id="oamobile" type="remote" source="http://mobile2.sugon.com" encoding="gb2312">
+	<viewer id="oamobile" type="remote" source="http://demo.digiflow.cn" encoding="gb2312">
 		<!-- 代办条数，气泡显示 -->
 		<view id="todosnum" template="todosNumber.jsp" encoding="utf-8" />
 		<!-- 手机待办列表 -->
@@ -155,5 +155,5 @@
 			<rule mode="replace" regex=":" value="_"/>
 		</view>
 	</viewer>
-	<viewer id="oamsg" type="remote" source="http://mobile2.sugon.com"	encoding="gb2312"></viewer>
+	<viewer id="oamsg" type="remote" source="http://demo.digiflow.cn"	encoding="gb2312"></viewer>
 </viewers>

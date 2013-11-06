@@ -38,15 +38,15 @@
 				for(int i=1; i<newlist.size();i++){
 					Element todoInfo=(Element)newlist.get(i);
 					JSONObject json=new JSONObject();
-					Node idate=todoInfo.selectSingleNode("./entrydata[2]/text");		//发布日期
-					Node title=todoInfo.selectSingleNode("./entrydata[5]/text");			//标题
+					Node idate=todoInfo.selectSingleNode("./entrydata[1]/text");		//发布日期
+					Node title=todoInfo.selectSingleNode("./entrydata[3]/text");			//标题
 					
 					
 					/*
 						cdata q.getContent() 前面的<被转义为&lg;,反解义
 					*/
-					String idateString=DocumentHelper.parseText(StringEscapeUtils.unescapeXml(idate.asXML())).getRootElement().getStringValue();
-					String titleString=DocumentHelper.parseText(StringEscapeUtils.unescapeXml(title.asXML())).getRootElement().getStringValue();
+					String idateString=idate.getStringValue();
+					String titleString=title.getStringValue();
 	
 					String unid=todoInfo.attributeValue("unid");
 					

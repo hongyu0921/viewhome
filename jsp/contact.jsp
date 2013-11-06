@@ -27,10 +27,10 @@
 				for(int i=1;i<contactList.size();i++){
 					Element contactInfo=(Element)contactList.get(i);
 					JSONObject json=new JSONObject();
+					//itcode
+					Node itcode=(Node)contactInfo.selectSingleNode("./td[1]");
 					//用户名
-					Node userName=(Node)contactInfo.selectSingleNode("./td[1]");
-					System.out.println("userName="+userName.asXML());
-					System.out.println("userName111="+userName.getText());
+					Node userName=(Node)contactInfo.selectSingleNode("./td[2]");
 					//部门名称
 					Node deptName=contactInfo.selectSingleNode("./td[3]");		
 					
@@ -40,14 +40,18 @@
 					Node officeNumber=contactInfo.selectSingleNode("./td[5]");	
 					//邮箱
 					Node mail=contactInfo.selectSingleNode("./td[6]");	
-										
+					
+					json.put("itcode",itcode.getStringValue());					
 					json.put("userName",userName.getStringValue());
-					json.put("deptName",deptName.getStringValue());
+					//json.put("deptName",deptName.getStringValue());
+					json.put("deptName","");
 					json.put("telNumber",telNumber.getStringValue());
 					json.put("dialNumber",telNumber.getStringValue());
 					json.put("officeNumber",officeNumber.getStringValue());
-					json.put("mail",mail.getStringValue());
-					json.put("mailto",mail.getStringValue());
+					//json.put("mail",mail.getStringValue());
+					json.put("mail","");
+					//json.put("mailto",mail.getStringValue());
+					json.put("mailto","");
 					taskArray.put(json);
 					
 				}
